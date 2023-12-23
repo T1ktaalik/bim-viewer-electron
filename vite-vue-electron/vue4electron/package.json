@@ -1,8 +1,9 @@
 {
-  "name": "cross-platform-viewer",
+  "name": "vue4electron",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
+
+  "main": "main.js",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -10,10 +11,13 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "electron:start": "electron ."
   },
   "dependencies": {
-    "vue": "^3.3.11"
+    "pinia": "^2.1.7",
+    "vue": "^3.3.11",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.3",

@@ -1,27 +1,23 @@
-//import { app, BrowserWindow } from 'electron'
+/*for electron*/ 
 const { app, BrowserWindow } = require('electron')
-//import path from 'node:path'
+const path = require('path')
 
 function createWindow() {
     const win = new BrowserWindow({
         width: 800,
-        height: 600/* ,
-        webPreferences: {
+        height: 600,
+        webPreferences: { 
             preload: path.join(__dirname, 'preload.js')
-        } */
+        }
     })
 
-    win.loadFile('index.html')
+    win.loadFile('dist/index.html')
 }
 
 app.whenReady().then(() => {
     createWindow()
-})
 
-/* app.whenReady().then(()=> {
-    createWindow()
-
-    app.on('activate', ()=> {
+    app.on('activate', () => {
         if(BrowserWindow.getAllWindows().length === 0) {
             createWindow()
         }
@@ -29,5 +25,7 @@ app.whenReady().then(() => {
 })
 
 app.on('window-all-closed', () => {
-
-}) */
+    if (process.platform !== "darvin") {
+        app.quit()
+    }   
+})
