@@ -44,8 +44,12 @@ setExplorerOpen(openExplorer === "true");
 
 const enableEditModels = (requestParams.enableEditModels === "true");
 
+const dataDirUrl = new URL('./public/data', import.meta.url).href
+console.log('we wil see')
+console.log(dataDirUrl)
 const server = new Server({
-// dataDir: "./data"
+ //dataDir: "/data"
+ dataDir: dataDirUrl
 });
 
 const bimViewer = new BIMViewer(server, {
