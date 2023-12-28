@@ -49,6 +49,7 @@ class Server {
         console.log('arg Project Id_:' + projectId)
         console.log(url)
         utils.loadJSON(url, done, error);
+
     }
 
     /**
@@ -80,6 +81,7 @@ class Server {
         console.log('getGeometry')
         console.log(url)
         utils.loadArraybuffer(url, done, error);
+        console.log('loadArraybuffer next')
     }
 
     /**

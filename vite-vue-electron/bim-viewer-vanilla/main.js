@@ -28,8 +28,18 @@ import { messages as localeMessages } from  './assets/xkt/src/messages.js'
 import { Server } from './assets/xkt/src/server/ServerModified.js'
 
 window.onload = function () {
-
+    console.log('onload has started')
+    console.log('window.location.href')
+    console.log(typeof window.location.href)
+    console.log(window.location.href)
+    console.log('window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => { vars[key] = value;});')
+    console.log('getRequestParams')
+    console.log(getRequestParams)
+    console.log('getRequestParams()')
+    console.log(getRequestParams())
   const requestParams = getRequestParams();
+  console.log('requestedParams')
+  console.log(requestParams)
   const locale = requestParams.locale || "en";
   //const projectId = requestParams.projectId;
   const projectId = 'Duplex';
@@ -106,7 +116,7 @@ window.onload = function () {
   setInspectorOpen(true);
   });
   
-  bimViewer.on("addModel", (event) => { // "Add" selected in Models tab's context menu
+/*   bimViewer.on("addModel", (event) => { // "Add" selected in Models tab's context menu
   console.log("addModel: " + JSON.stringify(event, null, "\t"));
   });
   
@@ -116,7 +126,7 @@ window.onload = function () {
   
   bimViewer.on("deleteModel", (event) => { // "Delete" selected in Models tab's context menu
   console.log("deleteModel: " + JSON.stringify(event, null, "\t"));
-  });
+  }); */
   
   const viewerConfigs = requestParams.configs;
   if (viewerConfigs) {
@@ -131,7 +141,9 @@ window.onload = function () {
   }
   
   bimViewer.loadProject(projectId, () => {
+    console.log('project is loading...' + projectId)
       const modelId = requestParams.modelId;
+      console.log('model is: '+ modelId);
       if (modelId) {
           bimViewer.loadModel(modelId);
       }
@@ -236,8 +248,6 @@ window.onload = function () {
   window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => {
       vars[key] = value;
   });
-  console.log('getRequestParams')
-  console.log(vars)
   return vars;
   }
   
