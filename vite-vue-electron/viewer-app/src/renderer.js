@@ -1,32 +1,39 @@
-/* import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+/**
+ * This file will automatically be loaded by vite and run in the "renderer" context.
+ * To learn more about the differences between the "main" and the "renderer" context in
+ * Electron, visit:
+ *
+ * https://electronjs.org/docs/tutorial/application-architecture#main-and-renderer-processes
+ *
+ * By default, Node.js integration in this file is disabled. When enabling Node.js integration
+ * in a renderer process, please be aware of potential security implications. You can read
+ * more about security risks here:
+ *
+ * https://electronjs.org/docs/tutorial/security
+ *
+ * To enable Node.js integration in this file, open up `main.js` and enable the `nodeIntegration`
+ * flag:
+ *
+ * ```
+ *  // Create the browser window.
+ *  mainWindow = new BrowserWindow({
+ *    width: 800,
+ *    height: 600,
+ *    webPreferences: {
+ *      nodeIntegration: true
+ *    }
+ *  });
+ * ```
+ */
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+/* import './index.css'; */
 
-setupCounter(document.querySelector('#counter')) */
-
-import { BIMViewer, LocaleService } from './assets/xkt/index.js'
-import { messages as localeMessages } from  './assets/xkt/src/messages.js'
-import { Server } from './assets/xkt/src/server/ServerModified.js'
-
+console.log('👋 This message is being logged by "renderer.js", included via Vite');
+import { BIMViewer, LocaleService } from './xkt/index.js'
+import { messages as localeMessages } from  './xkt/src/messages.js'
+import { Server } from './xkt/src/server/ServerModified.js'
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
 /* window.onload = */ function startViewer () {
   const project= 'Duplex';
   const requestParams = getRequestParams(project);
@@ -46,7 +53,7 @@ import { Server } from './assets/xkt/src/server/ServerModified.js'
   
 
   const server = new Server({
-  /*  dataDir: "/data" */
+   /* dataDir: "./src" */
    
   });
   
