@@ -45,9 +45,7 @@ class Server {
      */
     getProject(projectId, done, error) {
         const url = this._dataDir + "/projects/" + projectId + "/index.json";
-        console.log('getProject')
-        console.log('arg Project Id_:' + projectId)
-        console.log(url)
+ 
         utils.loadJSON(url, done, error);
 
     }
@@ -78,10 +76,10 @@ class Server {
      */
     getGeometry(projectId, modelId, done, error) {
         const url = this._dataDir + "/projects/" + projectId + "/models/" + modelId + "/geometry.xkt";
-        console.log('getGeometry')
-        console.log(url)
+        console.log(projectId, modelId)
         utils.loadArraybuffer(url, done, error);
-        console.log('loadArraybuffer next')
+
+        
     }
 
     /**

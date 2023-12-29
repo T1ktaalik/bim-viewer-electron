@@ -28,12 +28,12 @@
 
 /* import './index.css'; */
 
-console.log('👋 This message is being logged by "renderer.js", included via Vite');
 import { BIMViewer, LocaleService } from './xkt/index.js'
 import { messages as localeMessages } from  './xkt/sources/messages.js'
 import { Server } from './xkt/sources/server/ServerModified.js'
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
+
 /* window.onload = */ function startViewer () {
   const project= 'Duplex';
   const requestParams = getRequestParams(project);
@@ -140,7 +140,7 @@ import 'tippy.js/dist/tippy.css';
   bimViewer.loadProject(projectId, () => {
     console.log('project is loading...' + projectId)
       const modelId = requestParams.modelId;
-      console.log('model is: '+ modelId);
+   
       if (modelId) {
           bimViewer.loadModel(modelId);
       }
