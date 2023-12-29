@@ -34,6 +34,9 @@ import { Server } from './xkt/sources/server/ServerModified.js'
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
+/* const { ipcRenderer } = require('electron') */
+/* import { ipcRenderer } from 'electron'; */
+
 /* window.onload = */ function startViewer () {
   const project= 'Duplex';
   const requestParams = getRequestParams(project);
