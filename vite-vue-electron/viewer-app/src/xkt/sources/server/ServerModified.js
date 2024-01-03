@@ -1,6 +1,6 @@
 import {utils} from "@xeokit/xeokit-sdk/dist/xeokit-sdk.es.js";
 if(utils) {
-    console.log(utils)
+
 } else {
     console.log('Something wrong with utils')
 }

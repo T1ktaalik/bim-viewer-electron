@@ -5,26 +5,22 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
+app.getPath('home')
+
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 400,
+    width: 800,
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true
+      nodeIntegration: true,
+      webSecurity: false,
     },
   });
 
 
-  //https://stackforgeeks.com/blog/how-to-pass-parameters-from-main-process-to-render-processes-in-electron
-  const someData = { 
-    message: 'There is a piece of data from the main!'
-  }
 
-  mainWindow.webContents.on('did-finish-load', () => {
-    mainWindow.webContents.send('send-data', someData)
-  } )
 
 
   // and load the index.html of the app.

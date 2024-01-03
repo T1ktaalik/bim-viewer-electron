@@ -33,7 +33,7 @@ import { messages as localeMessages } from  './xkt/sources/messages.js'
 import { Server } from './xkt/sources/server/ServerModified.js'
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
-
+console.log(window.testMessage.pathData)
 /* const { ipcRenderer } = require('electron') */
 /* import { ipcRenderer } from 'electron'; */
 
@@ -41,7 +41,8 @@ import 'tippy.js/dist/tippy.css';
   const project= 'Duplex';
   const requestParams = getRequestParams(project);
   const locale = requestParams.locale || "en";
-  const projectId = requestParams.projectId;
+    const projectId = requestParams.projectId;
+
 
   
   if (!projectId) {
@@ -56,7 +57,7 @@ import 'tippy.js/dist/tippy.css';
   
 
   const server = new Server({
-   /* dataDir: "./src" */
+   dataDir: window.testMessage.pathData
    
   });
   
