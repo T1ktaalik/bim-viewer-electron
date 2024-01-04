@@ -33,9 +33,8 @@ import { messages as localeMessages } from  './xkt/sources/messages.js'
 import { Server } from './xkt/sources/server/ServerModified.js'
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
-console.log(window.testMessage.pathData)
-/* const { ipcRenderer } = require('electron') */
 /* import { ipcRenderer } from 'electron'; */
+ console.log( typeof window.exposed.onGetData)
 
 /* window.onload = */ function startViewer () {
   const project= 'Duplex';
@@ -57,7 +56,7 @@ console.log(window.testMessage.pathData)
   
 
   const server = new Server({
-   dataDir: window.testMessage.pathData
+   dataDir: ""
    
   });
   

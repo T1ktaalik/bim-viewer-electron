@@ -5,7 +5,7 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-app.getPath('home')
+/* app.getPath('home') */
 
 const createWindow = () => {
   // Create the browser window.
@@ -16,9 +16,13 @@ const createWindow = () => {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       webSecurity: false,
+      /* contextIsolation: false */
     },
   });
 
+  
+
+  //https://ourcodeworld.com/articles/read/537/how-to-execute-a-function-of-the-main-process-inside-the-renderer-process-in-electron-framework
 
 
 
@@ -32,11 +36,9 @@ const createWindow = () => {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools(); 
-
+  /* ipcMain.send() */ 
   //setting ipc communication
-  mainWindow.webContents.on('providePath', () => {
-    mainWindow.webContents.send('message_argument_first', 'message_argument_second' )
-  })
+ 
 };
 
 // This method will be called when Electron has finished
@@ -58,6 +60,7 @@ app.on('activate', () => {
   // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
+    mainWindow.webContents.send('update-counter', 'send-smth-from-main')
   }
 });
 
