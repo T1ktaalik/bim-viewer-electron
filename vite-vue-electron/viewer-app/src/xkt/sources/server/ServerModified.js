@@ -22,6 +22,7 @@ class Server {
     constructor(cfg = {}) {
         this._dataDir = cfg.dataDir || "";
     }
+   
 
     /**
      * Gets information on all available projects.
@@ -30,11 +31,15 @@ class Server {
      * @param {Function} error Callback through which an error message is returned on error.
      */
     getProjects(done, error) {
+       
+        console.log('this._dataDir: ' + this._dataDir)
         const url = this._dataDir + "/projects/index.json";
         console.log('getProjects')
         console.log(url)
         utils.loadJSON(url, done, error);
     }
+
+    
 
     /**
      * Gets information for a project.
@@ -45,7 +50,7 @@ class Server {
      */
     getProject(projectId, done, error) {
         const url = this._dataDir + "/projects/" + projectId + "/index.json";
- 
+        console.log(url)
         utils.loadJSON(url, done, error);
 
     }
@@ -76,7 +81,10 @@ class Server {
      */
     getGeometry(projectId, modelId, done, error) {
         const url = this._dataDir + "/projects/" + projectId + "/models/" + modelId + "/geometry.xkt";
-        console.log(projectId, modelId)
+        console.log(projectId, modelId, '<---')
+        console.log(utils)
+        console.log('this._dataDir: ' + this._dataDir)
+        console.log(url)
         utils.loadArraybuffer(url, done, error);
 
         
@@ -95,7 +103,7 @@ class Server {
         const url = this._dataDir + "/projects/" + projectId + "/models/" + modelId + "/props/" + objectId + ".json";
         console.log('getObjectInfo')
         console.log(url)
-        utils.loadJSON(url, done, error);
+    
     }
 
     /**

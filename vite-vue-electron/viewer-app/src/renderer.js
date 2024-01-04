@@ -34,7 +34,7 @@ import { Server } from './xkt/sources/server/ServerModified.js'
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 /* import { ipcRenderer } from 'electron'; */
- console.log( typeof window.exposed.onGetData)
+
 
 /* window.onload = */ function startViewer () {
   const project= 'Duplex';
@@ -54,10 +54,9 @@ import 'tippy.js/dist/tippy.css';
   
   const enableEditModels = (requestParams.enableEditModels === "true");
   
-
+console.log('import.meta.env.VITE_API_PATH_TO_FILES: ', import.meta.env.VITE_API_PATH_TO_FILES)
   const server = new Server({
-   dataDir: ""
-   
+   dataDir: import.meta.env.VITE_API_PATH_TO_FILES
   });
   
   const bimViewer = new BIMViewer(server, {
