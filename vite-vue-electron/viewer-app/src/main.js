@@ -5,11 +5,6 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-/* app.getPath('home') */
-let m = app.getPath('exe');
-console.log('********************************************')
-console.log(m)
-console.log('##########################################################################')
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -63,7 +58,6 @@ app.on('activate', () => {
   // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
-    mainWindow.webContents.send('update-counter', 'send-smth-from-main')
   }
 });
 

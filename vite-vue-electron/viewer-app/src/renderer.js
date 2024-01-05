@@ -33,30 +33,32 @@ import { messages as localeMessages } from  './xkt/sources/messages.js'
 import { Server } from './xkt/sources/server/ServerModified.js'
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
-/* import { ipcRenderer } from 'electron'; */
 
+console.log(import.meta.env.VITE_API_MODE)
 
+ы
 /* window.onload = */ function startViewer () {
   const project= 'Duplex';
+
   const requestParams = getRequestParams(project);
+
   const locale = requestParams.locale || "en";
-    const projectId = requestParams.projectId;
 
-
+  const projectId = requestParams.projectId;
   
   if (!projectId) {
-  console.log('There is a projectId issue')
+  console.log('There is a projectId issue. pojectId is not defined')
   return;
   }
   
-  const openExplorer = requestParams.openExplorer;
-  setExplorerOpen(openExplorer === "true");
+  //const openExplorer = requestParams.openExplorer;
+  const openExplorer = true
+  //setExplorerOpen(openExplorer === "true");
+  setExplorerOpen(openExplorer);
   
   const enableEditModels = (requestParams.enableEditModels === "true");
-  
-console.log('import.meta.env.VITE_API_PATH_TO_FILES: ', import.meta.env.VITE_API_PATH_TO_FILES)
   const server = new Server({
-   dataDir: import.meta.env.VITE_API_PATH_TO_FILES
+   dataDir: window.preloaderAPI.rootDirectory()
   });
   
   const bimViewer = new BIMViewer(server, {
@@ -138,11 +140,11 @@ console.log('import.meta.env.VITE_API_PATH_TO_FILES: ', import.meta.env.VITE_API
       bimViewer.setConfig(configName, configVal);
   }
   }
-  
+
   bimViewer.loadProject(projectId, () => {
-    console.log('project is loading...' + projectId)
+
       const modelId = requestParams.modelId;
-   
+    
       if (modelId) {
           bimViewer.loadModel(modelId);
       }
