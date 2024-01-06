@@ -33,10 +33,10 @@ import { messages as localeMessages } from  './xkt/sources/messages.js'
 import { Server } from './xkt/sources/server/ServerModified.js'
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
+import pako from 'pako';
 
 console.log(import.meta.env.VITE_API_MODE)
 
-ы
 /* window.onload = */ function startViewer () {
   const project= 'Duplex';
 
@@ -60,7 +60,7 @@ console.log(import.meta.env.VITE_API_MODE)
   const server = new Server({
    dataDir: window.preloaderAPI.rootDirectory()
   });
-  
+  console.log('renderer: defining a bimViewer')
   const bimViewer = new BIMViewer(server, {
   localeService: new LocaleService({
       messages: localeMessages,

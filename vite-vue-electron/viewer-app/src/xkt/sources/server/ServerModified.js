@@ -1,5 +1,5 @@
 import {utils} from "@xeokit/xeokit-sdk/dist/xeokit-sdk.es.js";
- 
+import normalize from 'path-normalize'
 if(utils) {
 
 } else {
@@ -32,12 +32,12 @@ class Server {
      * @param {Function} error Callback through which an error message is returned on error.
      */
     getProjects(done, error) {
-       
+        console.log('getProjects() is invoked')
         console.log('this._dataDir: ' + this._dataDir)
-        const url = this._dataDir + "/projects/index.json";
-        console.log('getProjects')
-        console.log(url)
+        const url = this._dataDir + "\\projects\\index.json";
+        //utils.loadJSON(url, done, error);
         utils.loadJSON(url, done, error);
+
     }
 
     
@@ -50,7 +50,7 @@ class Server {
      * @param {Function} error Callback through which an error message is returned on error.
      */
     getProject(projectId, done, error) {
-        const url = this._dataDir + "/projects/" + projectId + "/index.json";
+        const url = this._dataDir + "\\projects\\" + projectId + "\\index.json";
         console.log(url)
         utils.loadJSON(url, done, error);
 
@@ -65,10 +65,7 @@ class Server {
      * @param {Function} error Callback through which an error message is returned on error.
      */
     getMetadata(projectId, modelId, done, error) {
-        const url = this._dataDir + "/projects/" + projectId + "/models/" + modelId + "/metadata.json";
-        console.log('getMetadata')
-        console.log('projectId_arg_+_' + projectId)
-        console.log(url)
+        const url = this._dataDir + "\\projects\\" + projectId + "\\models\\" + modelId + "\\metadata.json";
         utils.loadJSON(url, done, error);
     }
 
@@ -81,11 +78,10 @@ class Server {
      * @param {Function} error Callback through which an error message is returned on error.
      */
     getGeometry(projectId, modelId, done, error) {
-        const url = this._dataDir + "/projects/" + projectId + "/models/" + modelId + "/geometry.xkt";
-        console.log(projectId, modelId, '<---')
-        console.log(utils)
-        console.log('this._dataDir: ' + this._dataDir)
-        console.log(url)
+        console.log('getGeometry is working ...')
+        const raw = String.raw
+       // const url = this._dataDir + "/projects/" + projectId + "/models/" + modelId + "/geometry.xkt";
+        const url = this._dataDir + `\\projects\\` + projectId + `\\models\\` + modelId + "\\geometry.xkt";
         utils.loadArraybuffer(url, done, error);
 
         
@@ -101,7 +97,7 @@ class Server {
      * @param {Function} error Callback through which an error message is returned on error.
      */
     getObjectInfo(projectId, modelId, objectId, done, error) {
-        const url = this._dataDir + "/projects/" + projectId + "/models/" + modelId + "/props/" + objectId + ".json";
+        const url = this._dataDir + "\\projects\\" + projectId + "\\models\\" + modelId + "\\props\\" + objectId + ".json";
         console.log('getObjectInfo')
         console.log(url)
     
@@ -116,7 +112,7 @@ class Server {
      * @param {Function} error Callback through which an error message is returned on error.
      */
     getIssues(projectId, modelId, done, error) {
-        const url = this._dataDir + "/projects/" + projectId + "/models/" + modelId + "/issues.json";
+        const url = this._dataDir + "\\projects\\" + projectId + "\\models\\" + modelId + "\\issues.json";
         utils.loadJSON(url, done, error);
     }
 
@@ -134,7 +130,7 @@ class Server {
      * @param {Function} error Callback through which an error message is returned on error.
      */
     getSplitModelManifest(projectId, modelId, manifestName, done, error) {
-        const url = this._dataDir + "/projects/" + projectId + "/models/" + modelId + "/" + manifestName;
+        const url = this._dataDir + "\\projects\\" + projectId + "\\models\\" + modelId + "\\" + manifestName;
         utils.loadJSON(url, done, error);
     }
 
@@ -148,7 +144,7 @@ class Server {
      * @param {Function} error Callback through which an error message is returned on error.
      */
     getSplitModelMetadata(projectId, modelId, metadataFileName, done, error) {
-        const url = this._dataDir + "/projects/" + projectId + "/models/" + modelId + "/" + metadataFileName;
+        const url = this._dataDir + "\\projects\\" + projectId + "\\models\\" + modelId + "\\" + metadataFileName;
         utils.loadJSON(url, done, error);
     }
 
@@ -162,7 +158,7 @@ class Server {
      * @param {Function} error Callback through which an error message is returned on error.
      */
     getSplitModelGeometry(projectId, modelId, geometryFileName, done, error) {
-        const url = this._dataDir + "/projects/" + projectId + "/models/" + modelId + "/" + geometryFileName;
+        const url = this._dataDir + "\\projects\\" + projectId + "\\models\\" + modelId + "\\" + geometryFileName;
         utils.loadArraybuffer(url, done, error);
     }
 }
