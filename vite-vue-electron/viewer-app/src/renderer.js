@@ -28,12 +28,12 @@
 
 /* import './index.css'; */
 
-import { BIMViewer, LocaleService } from './xkt/index.js'
-import { messages as localeMessages } from  './xkt/sources/messages.js'
-import { Server } from './xkt/sources/server/ServerModified.js'
+import { BIMViewer, LocaleService } from './xkt-bim-viewer/index.js'
+import { messages as localeMessages } from  './xkt-bim-viewer/sources/messages.js'
+import { Server } from './xkt-bim-viewer/sources/server/ServerModified.js'
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
-import pako from 'pako';
+
 
 console.log(import.meta.env.VITE_API_MODE)
 

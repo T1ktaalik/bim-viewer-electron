@@ -5,4 +5,10 @@ export default defineConfig({
     plugins: [
         nodePolyfills(),
       ],
+    build: {
+      rollupOptions: {
+
+      },
+      minify: false
+    }
 });

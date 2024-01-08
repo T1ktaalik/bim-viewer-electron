@@ -33,7 +33,7 @@ const createWindow = () => {
   }
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools(); 
+  //mainWindow.webContents.openDevTools(); 
   /* ipcMain.send() */ 
   //setting ipc communication
  
