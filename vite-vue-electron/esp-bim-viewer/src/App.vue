@@ -1,6 +1,6 @@
 <template>
-    <h1>Приложение Forge Electron, Vue, Vite</h1>
+   <BimViewerComponent />
 </template>
 <script setup>
-console.log('Компонент корневой Vue запущен')
+import { BimViewerComponent } from './components/BimViewerComponent.vue';
 </script>
