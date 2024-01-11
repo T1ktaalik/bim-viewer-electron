@@ -12,8 +12,8 @@
 </div>
 </template>
 <script setup>
-import { onMounted } from 'vue'
-import { Server, BIMViewer, LocaleService } from ''
+import { onMounted } from 'vue' /* @vite-ignore */
+/* import { Server, BIMViewer, LocaleService } from ''
 import { messages as localeMessages } from ''
 
 
@@ -72,7 +72,7 @@ function launchViewer() {
             toggle.checked = InspectorOpen
         }
     }
-
+ */
   /*   bimViewer.loadProject(projectId, () => {
                 const modelId = requestParams.modelId;
                 if (modelId) {
@@ -91,7 +91,7 @@ function launchViewer() {
 
 
 
-}
-
+/* }
+ */
 
 </script>

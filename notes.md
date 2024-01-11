@@ -13,3 +13,5 @@ https://www.electronforge.io/guides/framework-integration/vue-3
 
 
 TS import errors description https://bobbyhadz.com/blog/javascript-unterminated-string-constant#:~:text=The%20TypeScript%20error%20%22String%20literal,of%20how%20the%20error%20occurs
+
+PRELOADER ISSUE https://github.com/quasarframework/quasar/issues/14179?ysclid=lr8yvylied283205664
