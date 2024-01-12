@@ -1,7 +1,6 @@
 <template>
-   <h2>XOXOX</h2>
-   <BimViewerComponent />
+   <BimViewerComponent class="h-full bg-slate-100	" />
 </template>
 <script setup>
-/* import { BimViewerComponent } from './components/BimViewerComponent.vue'; */
+import  BimViewerComponent  from './components/BimViewerComponent.vue';
 </script>

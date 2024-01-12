@@ -9,15 +9,16 @@ if (require('electron-squirrel-startup')) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-   
-    width: 800,
-    height: 600,
+    //fullscreen: true,
+    title: 'ЕвроСтройПроект',
+    width: 1800,
+    height: 1000,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true, 
-      sandbox: false, 
-      contextIsolation: true,
-      enableRemoteModule: true
+      contextIsolation: true, 
+      //webSecurity: false,
+      //devTools: import.meta.env.VITE_API_DEVTOOLS
     },
   });
 
@@ -28,8 +29,13 @@ const createWindow = () => {
     mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
   }
 
+const isDevToolsOpen = import.meta.env.VITE_API_DEVTOOLS
+
+if (isDevToolsOpen) {
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+}
+  
 };
 
 // This method will be called when Electron has finished
