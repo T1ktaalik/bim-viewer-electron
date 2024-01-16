@@ -28,7 +28,15 @@
 
 import './index.css';
 import { createApp } from 'vue'
+import { Quasar } from 'quasar'
+import 'quasar/src/css/index.sass'
 import App from './App.vue'
-createApp(App).mount('#app')
-console.log('👋 This message is being logged by "renderer.js", included via Vite');
-console.log(window.customInterfaces.interfaceRootDirectory())
+
+const bimViewerApp = createApp(App)
+bimViewerApp.use(Quasar, {
+    plugins: {
+
+    }
+})
+bimViewerApp.mount('#app')
+
