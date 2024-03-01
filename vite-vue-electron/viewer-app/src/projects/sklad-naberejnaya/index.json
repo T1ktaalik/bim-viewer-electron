@@ -1,0 +1,37 @@
+{
+    "id": "sklad-naberejnaya",
+    "name": "Склад Набережная",
+    "models": [
+        {
+            "id": "ar-sklad1",
+            "name": "Архитектурные решение Склад 1"
+        },
+        {
+            "id": "ar-sklad2",
+            "name": "Архитектурные решение Склад 2"
+        },
+        {
+            "id": "ar-sklad3",
+            "name": "Архитектурные решение Склад 3"
+        },
+        {
+            "id": "vent-sklad1",
+            "name": "Вентиляция Склад 1"
+        },
+        {
+            "id": "vent-sklad2",
+            "name": "Вентиляция Склад 2"
+        },
+        {
+            "id": "vent-sklad3",
+            "name": "Вентиляция Склад 3"
+        }
+    ],
+
+    "viewerContent": {
+        "modelsLoaded": [
+            "ar-sklad1",
+            "vent-sklad1"
+        ]
+    }
+}

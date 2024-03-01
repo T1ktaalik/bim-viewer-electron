@@ -17,7 +17,8 @@ const createWindow = () => {
       contextIsolation: true
     },
   });
-
+//*
+  mainWindow.webContents.openDevTools();
   
 
   //https://ourcodeworld.com/articles/read/537/how-to-execute-a-function-of-the-main-process-inside-the-renderer-process-in-electron-framework

@@ -38,7 +38,7 @@ import 'tippy.js/dist/tippy.css';
 console.log(import.meta.env.VITE_API_MODE)
 
 /* window.onload = */ function startViewer () {
-  const project= 'Duplex';
+  const project= 'sklad-naberejnaya';
 
   const requestParams = getRequestParams(project);
 
@@ -60,7 +60,7 @@ console.log(import.meta.env.VITE_API_MODE)
   const server = new Server({
    dataDir: window.preloaderAPI.rootDirectory()
   });
-  console.log('renderer: defining a bimViewer')
+
   const bimViewer = new BIMViewer(server, {
   localeService: new LocaleService({
       messages: localeMessages,
@@ -115,7 +115,10 @@ console.log(import.meta.env.VITE_API_MODE)
   
   bimViewer.on("openInspector", () => {
   setInspectorOpen(true);
+
   });
+
+
   
 /*   bimViewer.on("addModel", (event) => { // "Add" selected in Models tab's context menu
   console.log("addModel: " + JSON.stringify(event, null, "\t"));
@@ -158,6 +161,21 @@ console.log(import.meta.env.VITE_API_MODE)
       console.error(errorMsg);
   });
   
+  const saveBCFButton = document.getElementById('saveBCFButton');
+  let viewPoint
+  saveBCFButton.addEventListener('click', function() {
+    viewPoint = bimViewer.saveBCFViewpoint();
+    console.log(typeof viewPoint)
+    console.log(viewPoint)
+    console.log(bimViewer.saveBCFViewpoint())})
+
+  const loadBCFButton =document.getElementById('loadBCFButton');
+  loadBCFButton.addEventListener('click', function() {
+     console.log('loading BCF!')
+    bimViewer.loadBCFViewpoint(viewPoint)
+    
+    })
+
   function watchHashParams() {
   let lastHash = "";
   window.setInterval(() => {

@@ -7,6 +7,6 @@ const rootDirectory = path.resolve(__dirname, '../', '../', 'src/')
 const normalizedRootDirectory = path.normalize(rootDirectory)
 
 contextBridge.exposeInMainWorld('customInterfaces', {
-    interfaceRootDirectory: () => { return normalizedRootDirectory }
+  rootDirectory: () => { return normalizedRootDirectory }
 })
 

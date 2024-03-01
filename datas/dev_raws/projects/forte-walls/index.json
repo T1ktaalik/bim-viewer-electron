@@ -1,0 +1,20 @@
+{
+    "id": "forte-walls",
+    "name": "forte-walls",
+    "models": [
+        {
+            "id": "west",
+            "name": "west"
+        },
+        {
+            "id": "east",
+            "name": "east"
+        }
+    ],
+    "viewerContent": {
+        "modelsLoaded": [
+        
+        ]
+    }
+
+}

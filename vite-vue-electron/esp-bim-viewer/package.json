@@ -37,6 +37,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@quasar/extras": "^1.16.9",
+    "@xeokit/xeokit-sdk": "^2.5.2-beta-4",
     "@xeokit/xeokit-viewer": "^1.6.9",
     "electron-squirrel-startup": "^1.0.0",
     "path": "^0.12.7",

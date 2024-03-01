@@ -576,7 +576,8 @@ class BIMViewer extends Controller {
         scene.selectedMaterial.edgeAlpha = 1.0;
         scene.selectedMaterial.fill = true;
         scene.selectedMaterial.fillAlpha = 0.1;
-        scene.selectedMaterial.fillColor = [0, 1, 0];
+       // scene.selectedMaterial.fillColor = [0, 1, 0];
+        
 
         //------------------------------------------------------------------------------------------------------------------
         // Configure points material

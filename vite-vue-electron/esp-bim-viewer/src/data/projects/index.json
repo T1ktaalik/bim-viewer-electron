@@ -3,6 +3,11 @@
     {
       "id": "Duplex",
       "name": "Duplex"
-    }
+    },
+    {
+      "id": "Building",
+      "name": "Building"
+  }
+
   ]
 }

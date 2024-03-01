@@ -1,0 +1,15 @@
+{
+    "id": "building",
+    "name": "building",
+    "models": [
+        {
+            "id": "building",
+            "name": "building"
+        },
+        {
+            "id": "forte-walls",
+            "name": "forte-walls"
+        }
+
+    ]
+}
